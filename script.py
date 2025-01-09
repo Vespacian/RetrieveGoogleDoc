@@ -1,14 +1,16 @@
 import requests
 
 def decode_message(url):
-    response = requests.get(url)
-    if response.status_code == 200:
-        raw = response.text
+    r = requests.get(url)
+    if r.status_code == 200:
+        text = r.text
         # print(raw)
-        lines = raw.splitlines()
-        print(lines[1])
+        lines = text.splitlines()
+        # print(lines[0])
+        print(r.cookies)
+        print(r.history)
     else:
-        print("Failed to fetch the document.")
+        print("Can't access doc :(")
     
     # parse url
     # rows = max(url.x)
